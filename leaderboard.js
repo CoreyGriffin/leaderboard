@@ -1,11 +1,11 @@
 PlayersList = new Mongo.Collection('players');
 
 Meteor.methods({
-  'createPlayer': function(){
+  'createPlayer': function(playerName){
     console.log("Hello World");
     var currentUserId = Meteor.userId();
     PlayersList.insert({
-      name: "Corey",
+      name: playerName,
       score: 0,
       createdBy: currentUserId
     });
@@ -92,7 +92,7 @@ if (Meteor.isClient) {
       event.preventDefault();
       var playerName = event.target.playerName.value;
 
-      Meteor.call('createPlayer'); // method call
+      Meteor.call('createPlayer', playerName); // method call
 
       //clear the form after submitted
       event.target.playerName.value = " ";
