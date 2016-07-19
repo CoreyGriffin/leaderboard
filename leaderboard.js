@@ -12,8 +12,31 @@ Meteor.methods({
           createdBy: currentUserId
         });
     }
+  },
+
+  'removePlayer': function(selectedPlayer){
+    //verifying that user is removing a String since that is all that should be accepted
+     check(selectedPlayer, String);
+    //users can only remove players if they are logged in
+     var currentUserId = Meteor.userId();
+     if (currentUserId) {
+           PlayersList.remove({_id: selectedPlayer, createdBy: currentUserId});
+           //this statement prevents users from removing names from other leaderboards
+     }
+  },
+
+  'updateScore':function(selectedPlayer, scoreValue){
+    check(selectedPlayer, String);
+    check(scoreValue, Number);
+    var currentUserId = Meteor.userId();
+    if (currentUserId) {
+      PlayersList.update(
+        { _id: selectedPlayer, createdBy: currentUserId },
+        { $inc: {score: scoreValue} }
+      );
+    }
   }
-});
+}); //end of Meteor Methods block
 
 
 
@@ -55,7 +78,6 @@ if (Meteor.isClient) {
     'selectedPlayer': function(){
       var selectedPlayer = Session.get('selectedPlayer')
       return PlayersList.findOne({_id: selectedPlayer});
-
     }
   });
 
@@ -70,23 +92,17 @@ if (Meteor.isClient) {
       },
       'click .increment': function(){
         var selectedPlayer = Session.get('selectedPlayer');
-        PlayersList.update(
-          { _id: selectedPlayer },
-          { $inc: {score: 5} }
-        );
+        Meteor.call('updateScore', selectedPlayer, 5);
       },
 
       'click .decrement': function(){
         var selectedPlayer = Session.get('selectedPlayer');
-        PlayersList.update(
-          { _id: selectedPlayer },
-          { $inc: {score: -5} }
-        );
+        Meteor.call('updateScore', selectedPlayer, -5);
       },
 
       'click .remove': function(){
         var selectedPlayer = Session.get('selectedPlayer');
-        PlayersList.remove({_id: selectedPlayer});
+        Meteor.call('removePlayer', selectedPlayer);
       }
   }); // end of leaderboard events
 
