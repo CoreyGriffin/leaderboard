@@ -1,0 +1,201 @@
+$aside_text: #eBD6DE
+
+
+
+*
+	box-sizing: border-box
+
+html, body
+	height: 100%
+
+body
+	font-family: 'Raleway', sans-serif
+	background: #EEEEEE
+
+.clearfix:before, .clearfix:after
+	content: " "
+	display: table
+
+.clearfix:after
+	clear: both
+.selected
+	.leaderboard_scores
+		ol
+			li
+				color: #fff
+	background-color: #CCEBC0
+
+
+
+.wrapper
+	background: #fff
+	margin: 5% auto
+	max-width: 950px
+	height: 65%
+	// border: 1px solid red
+	overflow: hidden
+	border-radius: 2%
+	box-shadow: 1px 7px 8px 1px rgba(0, 0, 0, 0.2)
+
+
+// left side player info
+
+.top_scorer
+	float: left
+	background: #2ABB9B
+	position: relative
+	width: 35%
+	max-width: 35%
+	z-index: 0
+	height: 100%
+	#login
+		// border: 1px solid red
+		width: 200px
+		color: #fff
+		position: absolute
+		float: left
+		margin: 1em
+		padding: 1em
+		font-weight: 100
+		opacity: .5%
+	.aside_content_wrapper
+		margin-top: 30%
+	h2
+		color: #fff
+		font-weight: 300
+		padding: 2em
+		// padding-bottom: 1em
+		margin:
+			top: 2em
+			bottom: 0
+		text-align: center
+		letter-spacing: 1px
+	.image_wrapper
+		border: 5px solid white
+		position: relative
+		height: 220px
+		width: 220px
+		margin: 0 auto
+		border-radius: 100%
+		#img
+			border-radius: 100%
+		 	position: absolute
+			height: 200px
+			width: 200px
+			float: left
+			margin: .325em
+			border: 2px solid #fff
+			background: url('../images/pro_pic.jpg')
+				position: center
+				size: 200px
+				repeat: no-repeat
+	.user_info
+		// border: 1px solid white
+		padding: 2em
+		text-align: center
+		h1
+			color: #fff
+			font-weight: 400
+			text-transform: uppercase
+			font-size: 1.5em
+			padding-bottom: 1.25em
+	.user_specifics
+		// border: 1px solid white
+		list-style: none
+		width: 200px
+		margin: 0 auto
+		padding: 0
+		li
+			padding: .75em
+			color: #fff
+			font-weight: 100
+			letter-spacing: 1px
+
+
+// end of left side player info
+
+//start of leaderboard_scores
+.leaderboard_scores
+	float: right
+	height: 100%
+	width: 65%
+	max-width: 70%
+	z-index: 100
+	box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3)
+	h1
+		color: #444444
+		text-align: center
+		padding: 1.25em 0
+		font-weight: 400
+		margin-bottom: 0
+	.score_list
+		// border: 1px solid red
+		width: 85%
+		margin: 0 auto
+		position: relative
+
+	#name_ranking_title, .score_title h3
+		font-weight: 200
+		letter-spacing: .5px
+		font-size: 1.5em
+		color: #656565
+
+	#name_ranking_title
+		float: left
+		margin-right: 30%
+	.score_title
+		float: right
+		position: absolute
+	ol
+		list-style: decimal-leading-zero
+		position: absolute
+		padding-top: 3em
+		padding-left: 4%
+		width: 85%
+		height: auto
+		li
+			padding: 1.25em
+			color: #656565
+			font-weight: 100
+			text-transform: capitalize
+			letter-spacing: 1px
+		.score
+			float: right
+	button
+		font-family: inherit
+		background: none
+		cursor: pointer
+		padding: 10px 15px
+		margin:
+			left: 0
+			right: 4px
+		float: left
+		text-transform: uppercase
+		font-size: .8em
+		letter-spacing: .5px
+		font-weight: 500
+		outline: none
+		position: relative
+		border: 3px solid #91CED7
+		border-radius: 5px
+		color: #fff
+		background-color: rgba(145, 206, 215, .9)
+		&:nth-of-type(3)
+			background-color: rgba(226, 110, 103, .9)
+			border-color: #E26E67
+
+
+
+
+// decimal-leading-zero
+	// border: 1px solid blue
+// .player
+//   position: relative
+//   background: #fff
+//   margin: 1em
+//   overflow: hidden
+//   font-size: 1.25em
+//   border-radius: 5px
+//   height: 70px
+//   max-width: 600px
+//   box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3)
